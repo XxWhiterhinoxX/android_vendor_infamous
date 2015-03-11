@@ -130,8 +130,8 @@ PRODUCT_COPY_FILES += \
     
 # Infamous themes
 PRODUCT_COPY_FILES += \
-    vendor/infamous/prebuilt/common/infamous_theme.apk:system/app/Infamous_Theme/infamous_theme.apk \
-    vendor/infamous/prebuilt/common/infamous_teal.apk:system/app/Infamous_Teal/infamous_teal.apk
+    vendor/infamous/prebuilt/common/etc/infamous_theme.apk:system/app/Infamous_Theme/infamous_theme.apk \
+    vendor/infamous/prebuilt/common/etc/infamous_teal.apk:system/app/Infamous_Teal/infamous_teal.apk
 
 # Viper4Android
 PRODUCT_COPY_FILES += \
