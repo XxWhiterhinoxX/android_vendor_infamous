@@ -1,3 +1,3 @@
 # This device supports CM enhanced NFC
 PRODUCT_COPY_FILES += \
-    vendor/liquid/config/permissions/com.liquidsmooth.nfc.enhanced.xml:system/etc/permissions/com.liquidsmooth.nfc.enhanced.xml
+    vendor/infamous/config/permissions/com.infamoussmooth.nfc.enhanced.xml:system/etc/permissions/com.infamoussmooth.nfc.enhanced.xml

@@ -2,10 +2,10 @@
 #
 # Print startup info
 #
-L="log -p i -t liquid"
+L="log -p i -t infamous"
 
-$L " __    __  __   _  _  __  ____  ____  _  _   __    __  ____  _  _ ";
-$L "(  )  (  )/  \ / )( \(  )(    \/ ___)( \/ ) /  \  /  \(_  _)/ )( \";
-$L "/ (_/\ )((  O )) \/ ( )(  ) D (\___ \/ \/ \(  O )(  O ) )(  ) __ (";
-$L "\____/(__)\__\)\____/(__)(____/(____/\_)(_/ \__/  \__/ (__) \_)(_/"
-$L "Welcome to Android `getprop ro.build.version.release` / LiquidSmooth-`getprop ro.liquid.version`";
+$L "    ___            __ ";
+$L " / (_  _ /|/|     (   ";
+$L "(/)/  (//   |()(/__)  ";
+                      
+$L "Welcome to Android `getprop ro.build.version.release` / Infamous-`getprop ro.infamous.version`";

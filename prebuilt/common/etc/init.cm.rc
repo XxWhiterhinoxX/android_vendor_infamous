@@ -1,4 +1,4 @@
-# LiquidSmooth Extras
+# Infamous Extras
 
 on init
     export ANDROID_CACHE /cache

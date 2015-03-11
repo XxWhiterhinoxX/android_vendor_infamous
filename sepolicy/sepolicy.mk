@@ -4,7 +4,7 @@
 #
 
 BOARD_SEPOLICY_DIRS += \
-    vendor/liquid/sepolicy
+    vendor/infamous/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     file.te \

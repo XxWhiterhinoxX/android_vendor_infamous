@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= LiquidSmooth
+PRODUCT_BRAND ?= Infamous
 
 ifneq ($(TARGET_SCREEN_WIDTH) $(TARGET_SCREEN_HEIGHT),$(space))
 # determine the smaller dimension
@@ -10,7 +10,7 @@ TARGET_BOOTANIMATION_SIZE := $(shell \
   fi )
 
 # get a sorted list of the sizes
-bootanimation_sizes := $(subst .zip,, $(shell ls vendor/liquid/prebuilt/common/bootanimation))
+bootanimation_sizes := $(subst .zip,, $(shell ls vendor/infamous/prebuilt/common/bootanimation))
 bootanimation_sizes := $(shell echo -e $(subst $(space),'\n',$(bootanimation_sizes)) | sort -rn)
 
 # find the appropriate size and set
@@ -27,9 +27,9 @@ endef
 $(foreach size,$(bootanimation_sizes), $(call check_and_set_bootanimation,$(size)))
 
 ifeq ($(TARGET_BOOTANIMATION_HALF_RES),true)
-PRODUCT_BOOTANIMATION := vendor/liquid/prebuilt/common/bootanimation/halfres/$(TARGET_BOOTANIMATION_NAME).zip
+PRODUCT_BOOTANIMATION := vendor/infamous/prebuilt/common/bootanimation/halfres/$(TARGET_BOOTANIMATION_NAME).zip
 else
-PRODUCT_BOOTANIMATION := vendor/liquid/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip
+PRODUCT_BOOTANIMATION := vendor/infamous/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip
 endif
 endif
 
@@ -61,37 +61,37 @@ PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/liquid/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/liquid/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/liquid/prebuilt/common/bin/50-liquid.sh:system/addon.d/50-liquid.sh \
-    vendor/liquid/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+    vendor/infamous/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/infamous/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/infamous/prebuilt/common/bin/50-infamous.sh:system/addon.d/50-infamous.sh \
+    vendor/infamous/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
-    vendor/liquid/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
+    vendor/infamous/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/liquid/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/liquid/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/infamous/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/infamous/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 # userinit support
 PRODUCT_COPY_FILES += \
-    vendor/liquid/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/infamous/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
 # SuperSU
 PRODUCT_COPY_FILES += \
-    vendor/liquid/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
-    vendor/liquid/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+    vendor/infamous/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+    vendor/infamous/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 
-# Liquid-specific init file
+# infamous-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/liquid/prebuilt/common/etc/init.cm.rc:root/init.cm.rc \
+    vendor/infamous/prebuilt/common/etc/init.cm.rc:root/init.cm.rc \
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
-    vendor/liquid/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
-    vendor/liquid/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
+    vendor/infamous/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
+    vendor/infamous/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -102,14 +102,12 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
 
 # T-Mobile theme engine
-include vendor/liquid/config/themes_common.mk
+include vendor/infamous/config/themes_common.mk
 
-# Liquid Stuff
+# infamous Stuff
 PRODUCT_PACKAGES += \
     PerformanceControl \
     SlimLauncher \
-    LiquidStats \
-    LiquidUpdater \
     Eleven \
     DashClock \
     DeskClock \
@@ -128,27 +126,32 @@ PRODUCT_PACKAGES += \
 
 # Proprietary latinime lib needed for Keyboard swyping
 PRODUCT_COPY_FILES += \
-    vendor/liquid/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
+    vendor/infamous/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
+    
+# Infamous themes
+PRODUCT_COPY_FILES += \
+    vendor/infamous/prebuilt/common/infamous_theme.apk:system/app/Infamous_Theme/infamous_theme.apk \
+    vendor/infamous/prebuilt/common/infamous_teal.apk:system/app/Infamous_Teal/infamous_teal.apk
 
 # Viper4Android
 PRODUCT_COPY_FILES += \
-    vendor/liquid/prebuilt/common/app/ViPER4Android/ViPER4Android.apk:system/app/ViPER4Android/ViPER4Android.apk
+    vendor/infamous/prebuilt/common/app/ViPER4Android/ViPER4Android.apk:system/app/ViPER4Android/ViPER4Android.apk
 
 # Bring in all video files
 $(call inherit-product, frameworks/base/data/videos/VideoPackage2.mk)
 
-# Include liquid audio files
-include vendor/liquid/config/liquid_audio.mk
+# Include infamous audio files
+include vendor/infamous/config/infamous_audio.mk
 
-# Include liquid LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/liquid/overlay/dictionaries
+# Include infamous LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/infamous/overlay/dictionaries
 
 # CM Hardware Abstraction Framework
 PRODUCT_PACKAGES += \
     org.cyanogenmod.hardware \
     org.cyanogenmod.hardware.xml
 
-# Extra tools in liquid
+# Extra tools in infamous
 PRODUCT_PACKAGES += \
     libsepol \
     openvpn \
@@ -195,36 +198,28 @@ PRODUCT_PACKAGES += \
     libFFmpegExtractor \
     libnamparser
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/liquid/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/infamous/overlay/common
 
 # version
 RELEASE = false
-LIQUID_VERSION_MAJOR = 4
-LIQUID_VERSION_MINOR = 0
+INFAMOUS_VERSION_MAJOR = 2
+INFAMOUS_VERSION_MINOR = 0
 
 # release
 ifeq ($(RELEASE),true)
-    LIQUID_VERSION := LS-LP-MileStone-$(LIQUID_VERSION_MAJOR).$(LIQUID_VERSION_MINOR)
+    INFAMOUS_VERSION := INFAMOUS-LP-MileStone-$(INFAMOUS_VERSION_MAJOR).$(INFAMOUS_VERSION_MINOR)
 else
-    LIQUID_VERSION_STATE := $(shell date +%Y-%m-%d)
-    LIQUID_VERSION := LS-LP-v$(LIQUID_VERSION_MAJOR).$(LIQUID_VERSION_MINOR)-$(LIQUID_VERSION_STATE)
+    INFAMOUS_VERSION_STATE := $(shell date +%Y-%m-%d)
+    INFAMOUS_VERSION := INFAMOUS-LP-v$(INFAMOUS_VERSION_MAJOR).$(INFAMOUS_VERSION_MINOR)-$(INFAMOUS_VERSION_STATE)
 endif
 
 # HFM Files
 PRODUCT_COPY_FILES += \
-	vendor/liquid/prebuilt/etc/hosts.alt:system/etc/hosts.alt \
-	vendor/liquid/prebuilt/etc/hosts.og:system/etc/hosts.og
+	vendor/infamous/prebuilt/etc/hosts.alt:system/etc/hosts.alt \
+	vendor/infamous/prebuilt/etc/hosts.og:system/etc/hosts.og
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.liquid.version=$(LIQUID_VERSION)
-
-# statistics identity
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.romstats.url=http://stats.liquidsmooth.net/ \
-    ro.romstats.name=LiquidSmooth \
-    ro.romstats.version=$(LIQUID_VERSION) \
-    ro.romstats.askfirst=0 \
-    ro.romstats.tframe=1
+    ro.infamous.version=$(INFAMOUS_VERSION)
 
 ifeq ($(RELEASE),true)
 # Disable multithreaded dexopt by default
