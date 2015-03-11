@@ -2,6 +2,10 @@
 #
 # Print startup info
 #
-L="log -p i -t slim"
+L="log -p i -t infamous"
 
-$L "Welcome to Android `getprop ro.build.version.release` / SlimKat `getprop ro.slim.version`";
+$L "    ___            __ ";
+$L " / (_  _ /|/|     (   ";
+$L "(/)/  (//   |()(/__)  ";
+                      
+$L "Welcome to Android `getprop ro.build.version.release` / Infamous-`getprop ro.infamous.version`";
